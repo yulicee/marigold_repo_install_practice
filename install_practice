@@ -1,4 +1,4 @@
-#Before running script: run command chmod +x install_practice; to run script use sudo ./install_practice
+#Before running script: run command chmod +x install_practice; to run script use ./install_practice
 
 #List packages and store them in a .txt file
 apt list --installed > install_practice.txt
