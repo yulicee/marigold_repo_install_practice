@@ -1,0 +1,20 @@
+#Before running script: run command chmod +x install_practice; to run script use sudo ./install_practice
+
+#List packages and store them in a .txt file
+apt list --installed > install_practice.txt
+
+#Put out number of installed packages
+installed_count=$(dpkg --list < install_practice.txt | grep "^ii" | wc -l)
+
+echo "Number of installed packages: $installed_count"
+
+#Prompt user if he really wants to install the packages listed in install_practice.txt
+read -p "Do you really want to install the packages? (y/N): " choice
+
+if [ "$choice" = "y" ]; then
+  #Install packages listed in install_practice.txt
+  sudo apt install -y $(cut -d/ f1 install_practice.txt)
+  echo "All available packages have been installed."
+else
+  echo "No packages were installed."
+fi
